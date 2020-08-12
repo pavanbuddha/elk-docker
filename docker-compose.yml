@@ -5,7 +5,7 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:${ES_VERSION:-7.4.0}
     container_name: spring-petclinic-elasticsearch
     environment:
-    - "ES_JAVA_OPTS=-Xms2048m -Xmx2048m"
+    - "ES_JAVA_OPTS=-Xms1000m -Xmx1000m"
     - node.name=petclinic-elasticsearch
     - discovery.type=single-node
     - ELASTIC_PASSWORD=${ELASTIC_PASSWORD:-changeme}
@@ -292,7 +292,7 @@ services:
       DATA_FILES: "/opt/data_files"
     depends_on:
       - spring-petclinic-client
-
+      
 networks:
   spring-petclinic-net:
     driver: bridge
